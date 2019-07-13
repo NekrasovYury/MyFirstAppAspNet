@@ -6,10 +6,16 @@ using System.Web.Mvc;
 
 namespace MyFirstApp.Controllers
 {
+    //public class JsonResult
+    //{
+    //    public string Test { get; set; }
+    //    public int ID { get; set; }
+    //}
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
+            ViewBag.Variable = RouteData.Values["id"];
             return View();
         }
 
@@ -29,11 +35,20 @@ namespace MyFirstApp.Controllers
             return View();
         }
 
-        public ActionResult SecretButton()
+        public ActionResult SecretButton(int? id)
         {
+            ViewBag.Variable = id;
+
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
+        public JsonResult Get(int? id)
+        {
+            return Json( new { Test = "123", Id = id }, JsonRequestBehavior.AllowGet);
+        }
+
+        
+       
     }
 }

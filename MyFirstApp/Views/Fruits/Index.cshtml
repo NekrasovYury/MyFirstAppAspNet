@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+
+        @foreach (var item in Model)
+    {
+        <h3>Имя фрукта: @item.Name</h3>
+        <h3>цена фрукта: @item.Price</h3>
+        <h3>категория фрукта: @item.Category</h3>
+        
+
+}
+    </div>
+</body>
+</html>
