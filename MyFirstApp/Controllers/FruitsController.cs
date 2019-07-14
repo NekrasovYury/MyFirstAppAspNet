@@ -10,7 +10,7 @@ namespace MyFirstApp.Controllers
     public class FruitsController : Controller
     {
         // GET: Fruits
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
             
             List<Fruits> fruct = new List<Fruits>();
@@ -27,7 +27,7 @@ namespace MyFirstApp.Controllers
             {
                 Category = "232",
                 Name = "44444",
-                FruitsId = 21,
+                FruitsId = 2,
                 Price = 321m
 
 
@@ -36,7 +36,7 @@ namespace MyFirstApp.Controllers
             {
                 Category = "asdfff",
                 Name = "aswwwwwdasd",
-                FruitsId = 51,
+                FruitsId = 3,
                 Price = 231m
 
 
@@ -44,7 +44,7 @@ namespace MyFirstApp.Controllers
 
 
 
-            return View(fruct);
+            return View(id != null ? fruct.Where(_ => _.FruitsId == id.Value).ToList() : fruct);
         }
     }
 }
